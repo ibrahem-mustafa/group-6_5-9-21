@@ -234,22 +234,23 @@
 // HOISTING
 
 
-var username = "ahmed";
+// var username = "ahmed";
 
 
-if (true) {
-  var username = 'ali'
-  console.log(username)
-}
+// if (true) {
+//   var username = 'ali'
+//   console.log(username)
+// }
 
-console.log(username)
+// console.log(username)
 
-add(1, 2);
-function add(x, y) {
-  console.log(x + y);
-}
+// add(1, 2);
+// function add(x, y) {
+//   console.log(x + y);
+// }
 
 // GUI => Graphical User Interface
+
 // CLI => Command Line Interface
 
 // API => Application programming Interface
