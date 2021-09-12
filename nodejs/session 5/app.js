@@ -54,13 +54,11 @@ const fs = require("fs");
 // Read Files
 // const fileData = fs.readFileSync('./assets/notes.txt')
 
-
-//TODO: Search About How To Convert JSON to String
 const todos = [
   {
     userId: 1,
     id: 1,
-    title: "delectus aut autem",
+    title: "Hi",
     completed: false,
   },
   {
@@ -89,6 +87,10 @@ const todos = [
   },
 ];
 
+// const jsonAsString = JSON.stringify(todos)
+// const jsonStringAsJson = JSON.parse(jsonAsString);
+// console.log(jsonStringAsJson);
+
 //  /todos => [todos]
 
 // /todoApp => todo task
@@ -104,14 +106,24 @@ const server = http.createServer((req, res) => {
         data = fs.readFileSync("./views/contact.html");
     } else if (url === '/') {
         data = fs.readFileSync("./views/index.html");
-    } else if (url === '/js') {
+    } else if (url === '/main') {
         data = fs.readFileSync('./views/main.js');
-    } else {
+    } else if (url === '/todos') {
+      data = JSON.stringify(todos)
+    } else if (url === '/todo-app') {
+      data = fs.readFileSync('./views/todoApp.html')
+    }  else if (url == '/todoJs') {
+      data = fs.readFileSync('./assets/js/app.js');
+    }  else {
         data = fs.readFileSync("./views/404.html");
-    }
+    } 
 
     res.end(data);
 
 })
 
 server.listen(5000, () => console.log('Server Is Running On Port 5000'))
+
+
+
+
