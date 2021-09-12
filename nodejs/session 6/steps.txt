@@ -1,0 +1,10 @@
+=> ProjectName ('Blog')
+    => views/
+    => assets/
+        => js
+            => main.js
+        => images
+        => style
+            => style.css
+        => fonts
+    => index.html
