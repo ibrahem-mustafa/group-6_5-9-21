@@ -1,0 +1,18 @@
+npm i -g express-generator || If It's Not Installed
+
+================================================
+
+// FIRST TIME
+
+express "project name" || express blog
+
+cd "project name" || cd blog
+
+npm i || Used To Install project Dependencies
+
+nodemon bin/www
+
+
+// Any Other Time
+cd "project folder"
+nodemon bin/www
