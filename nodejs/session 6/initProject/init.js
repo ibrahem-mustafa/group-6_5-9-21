@@ -2,12 +2,16 @@ const fs = require('fs')
 
 const arg = process.argv
 
-const projectPath = arg[2]
-// ../../session\ 5/blog => ['..', '..', 'session 5', 'blog']
-const projectPathSplitter = projectPath.split('/')
-const projectName = projectPathSplitter.pop()
-const projectRootPath = projectPathSplitter.join('/');
 
+
+const projectPath = arg[2] // ./projects/blog
+console.log('Full Path', projectPath)
+const projectPathSplitter = projectPath.split('/') // ['.', 'projects', 'blog']
+console.log('path splitter', projectPathSplitter)
+const projectName = projectPathSplitter.pop() // blog
+console.log('Project Name', projectName);
+const projectRootPath = projectPathSplitter.join('/'); // ['.', 'projects'].join('/') => ./projects
+console.log('Project Parent Folder' , projectRootPath)
 
 fs.mkdirSync(projectPath);
 
