@@ -1,0 +1,11 @@
+AUTHENTICATION
+
+// Signin
+// Singup
+
+BLOGGING
+
+// POST create article
+// PUT update article
+// GET get article/s
+// DELETE delete article

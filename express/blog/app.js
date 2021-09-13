@@ -7,6 +7,8 @@ var logger = require('morgan');
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 
+const articlesRoutes = require('./routes/articles.routes')
+
 var app = express();
 
 // view engine setup
@@ -16,6 +18,40 @@ var app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+
+app.use('/articles', articlesRoutes)
+
+
+const todos = [
+  {
+    id: new Date().getTime(),
+    title: 'Todo One',
+  }
+]
+
+// METHOD: POST
+// ROUTE: /todos
+
+app.get('/todos', (req, res) => {
+  res.json({
+    todos
+  })
+})
+
+app.post('/todos', (req, res) => {
+
+
+  const body = req.body;
+  
+  todos.push({
+    id: new Date().getTime(),
+    title: body.title,
+  })
+
+
+  res.json({todos})
+})
 
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
