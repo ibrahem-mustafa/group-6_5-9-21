@@ -1,0 +1,44 @@
+// insert
+// query (get)
+// update
+// delete
+
+// NOTES:
+
+// mongo => start mongodb
+
+// show dbs => list all available Databases
+// use "DB name" => create/switch to "DB Name"
+
+DB => Collections => Documents => Data
+
+Blog DB => Users Collection => user Documents => user Data
+Blog DB => Articles Collection => article Documents => article Data
+
+// Databases
+[
+    [
+        {
+            id: 1,
+            name: 'ahmed',
+            salary: 3000
+        } // document
+    ], // users (collection)
+    [], // articles (collection)
+
+]
+
+// show collections => list all available collections
+
+// after switch to any database any command must be written in format => db."collectionName"."command"
+// db."collectionName".insert(data) => add new record to "collectionName"
+// db."collectionName".insertMany([data]) => add new multiple records to "collectionName"
+
+// db."collectionName".find(query) => get all matched documents with given query
+// db."collectionName".findOne(query) => get first matched document with given query
+
+// db."collectionName".updateOne(query, update) => update single document that matches the given query
+// db."collectionName".updateMany(query, update) => update any document that matched the given query
+
+// db."collectionName".deleteOne(query) => delete single document that matches the given query
+// db."collectionName".deleteMany(query) => delete any document that matched the given query
