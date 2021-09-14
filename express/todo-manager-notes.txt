@@ -1,0 +1,14 @@
+// crate project
+// todo model
+// todo routes
+// => create todo
+// => update todo
+// => get todos
+// => delete todo
+
+//
+{
+    title: String,
+    completed: Boolean, default: false,
+    cratedBy: {id: String, name: String}
+}

@@ -1,7 +1,9 @@
 // ARTICLES ROUTES
 const express = require('express');
 
-const router = express.Router()
+const router = express.Router();
+
+const {Article,} = require('../models/article.model')
 
 /* 
     {
@@ -20,68 +22,101 @@ const articles = [
     }
 ]
 
+
+const user = {
+    id: "dkjsafhkashdfkjhsakd",
+    name: "ahmed ali"
+}
+
 // /articles/getArticles
-router.get('/getArticles', (req, res) => {
+router.get('/getArticles', async (req, res) => {
+    
+
+    const articles = await Article.find()
+
     res.status(200).json({
         articles
     })
 })
 
 // /articles/createArticle
-router.post('/createArticle', (req, res) => {
+router.post('/createArticle', async (req, res) => {
     // const body = req.body;
     // const title = body.title;
     // const content = body.content;
 
     const {title, content} = req.body
 
-    articles.push({
-        id: new Date().getTime(),
+    // articles.push({
+    //     id: new Date().getTime(),
+    //     title,
+    //     content,
+    //     createdAt: new Date()
+    // })
+
+    const article = new Article({
         title,
         content,
-        createdAt: new Date()
+        createdBy: {
+            id: user.id,
+            name: user.name
+        }
     })
 
 
+    await article.save()
+
+
     res.status(201).json({
-        articles
+        article
     })
     
     
 })
 
 // /articles/updateArticle/{{articleId}}
-router.put('/updateArticle/:id', (req, res) => {
+router.put('/updateArticle/:id', async (req, res) => {
     // const params = req.params;
     // const id = params.id;
 
     const {id} = req.params;
     const {title, content} = req.body;
 
-    const article = articles.find(art => art.id == id);
+    // const article = articles.find(art => art.id == id);
+
+    // if (!article) return res.status(404).json({msg: 'Article Not Found'})
+
+    // article.title = title;
+    // article.content = content;
+
+    const article = await Article.findByIdAndUpdate(id, {
+        title,
+        content
+    })
 
     if (!article) return res.status(404).json({msg: 'Article Not Found'})
 
-    article.title = title;
-    article.content = content;
 
-
-    res.status(200).json({article})
+    res.status(200).json({msg: 'Article Updated Successfully.'})
 })
 
 
-router.delete('/deleteArticle/:id', (req, res) => {
+router.delete('/deleteArticle/:id', async (req, res) => {
 
     const {id} = req.params
 
-    const articleIndex = articles.findIndex(art => art.id == id);
+    // const articleIndex = articles.findIndex(art => art.id == id);
 
-    if (articleIndex === -1) return res.status(404).json({msg: "Article Not Found"});
+    // if (articleIndex === -1) return res.status(404).json({msg: "Article Not Found"});
 
-    articles.splice(articleIndex, 1)
+    // articles.splice(articleIndex, 1)
+
+    const article = await Article.findByIdAndDelete(id)
+
+    if (!article) return res.status(404).json({msg: 'Article Not Found'})
 
     res.status(200).json({
-        msg: "Article Deleted"
+        msg: "Article Deleted Successfully."
     })
 })
 
