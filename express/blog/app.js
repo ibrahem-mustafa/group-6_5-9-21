@@ -12,6 +12,7 @@ connectDB();
 
 
 const articlesRoutes = require('./routes/articles.routes')
+const authRoutes = require('./routes/auth.routes');
 
 var app = express();
 
@@ -25,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use('/articles', articlesRoutes)
-
+app.use('/auth', authRoutes);
 
 const todos = [
   {
