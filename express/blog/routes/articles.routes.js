@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const {Article,} = require('../models/article.model')
+const jwt = require('jsonwebtoken')
 
 /* 
     {
@@ -31,12 +32,26 @@ const user = {
 // /articles/getArticles
 router.get('/getArticles', async (req, res) => {
     
+    const authorization = req.headers.authorization;
 
-    const articles = await Article.find()
+    if (!authorization) return res.status(401).json({msg: "Unauthorized Request"});
 
-    res.status(200).json({
-        articles
-    })
+    try {
+        const token = authorization.split(' ')[1]
+        const user =  jwt.verify(token, 'dasfkljasdlkjg')
+        
+        const articles = await Article.find({
+            'createdBy.id': user.id
+        })
+
+        res.status(200).json({
+            articles
+        })
+    } catch(err) {
+        res.status(401).json({msg: "Invalid Token"})
+    }
+
+    
 })
 
 // /articles/createArticle
@@ -47,6 +62,35 @@ router.post('/createArticle', async (req, res) => {
 
     const {title, content} = req.body
 
+    const authorization = req.headers.authorization // empty/notExist | Bearer ${token}
+
+    if (!authorization) return res.status(401).json({
+        msg: 'UnAuthorized Request'
+    })
+    const token = authorization.split(' ')[1] // ['Bearer', 'token'] => token
+
+    try {
+        const user = jwt.verify(token, 'dasfkljasdlkjg')
+
+        const article = new Article({
+            title,
+            content,
+            createdBy: {
+                id: user.id,
+                name: user.name
+            }
+        })
+
+
+        await article.save()
+
+        res.status(201).json({
+            article
+        })
+    } catch(err) {
+        res.status(401).json({msg: "Invalid Token"})
+    }
+
     // articles.push({
     //     id: new Date().getTime(),
     //     title,
@@ -54,22 +98,7 @@ router.post('/createArticle', async (req, res) => {
     //     createdAt: new Date()
     // })
 
-    const article = new Article({
-        title,
-        content,
-        createdBy: {
-            id: user.id,
-            name: user.name
-        }
-    })
-
-
-    await article.save()
-
-
-    res.status(201).json({
-        article
-    })
+    
     
     
 })

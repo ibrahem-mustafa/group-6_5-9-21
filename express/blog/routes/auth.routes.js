@@ -6,6 +6,7 @@ const router = require('express').Router()
 const { User} = require('../models/user.model')
 const bcrypt = require('bcrypt');
 const { UserDto } = require('../dto/user.dto');
+const jwt = require('jsonwebtoken')
 
 // Signup
 // /auth/signup
@@ -53,9 +54,13 @@ router.post('/signin', async (req, res) => {
     const validPassword = bcrypt.compareSync(password, user.password)
 
     if (!validPassword) return res.status(400).json({msg: "Incorrect Credentials"})
+    const userData = UserDto(user)
+    
+    const token = jwt.sign(userData, 'dasfkljasdlkjg')
 
     res.status(200).json({
-        user: UserDto(user)
+        user: userData,
+        token
     })
 
 })
