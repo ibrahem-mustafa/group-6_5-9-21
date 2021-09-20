@@ -9,13 +9,13 @@
 
 
 
-\\\\\\\\\\\\ SESSION 1 ////////////
+\\\\\\\\\\\\ PART 1 ////////////
 1: introduction
 2: angular cli
 3: Hello World
 4: Components
 5: Interpolation // {{ value || variable || method || expression }}
-6: Property Binding // [property]="value || variable || method"
+6: Property Binding // [property]="value || variable || method || expression"
 7: Class Binding // [class."className"] = "value" || [ngClass] = "{...} || method return object"
 8: Style Binding // [style."validCssProperty"] = "value" || [ngStyle] = "{...} || method return object"
 
@@ -24,7 +24,7 @@
 11: Two Way Data Binding [(ngModel)]="property"
 \\\\\\\\\\\\\\\\\\/////////////////
 
-\\\\\\\\\\\\ SESSION 2 ////////////
+\\\\\\\\\\\\ PART 2 ////////////
 0: ng-template
 ****** Structural Directives ******
 1: ngIf // [*ngIf = "value || condition"]  || [*ngIf="condition; else "templateVariable"] 
@@ -43,7 +43,7 @@
 6: Services
 \\\\\\\\\\\\\\\\\\/////////////////
 
-\\\\\\\\\\\\ SESSION 3 ////////////
+\\\\\\\\\\\\ PART 3 ////////////
 7: Interfaces
 8: HTTP & Observable
 9: Fetch Data Via Http Requests // HttpClientModule // import {HttpClientModule}  from '@angular/common/http'

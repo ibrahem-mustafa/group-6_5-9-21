@@ -1,1 +1,32 @@
-<h1>Hello From Angular</h1>
+<h1> Page Title: {{isHomePage ? 'Home Page' : 'About Page'}} </h1>
+<h2>{{subTitle}} </h2>
+
+<!-- <p [class]="pageContentClasses()" > Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic eos. Natus illo ut vero placeat exercitationem saepe quaerat nostrum? Laborum obcaecati voluptate quaerat omnis praesentium mollitia laboriosam facilis iusto. </p> -->
+
+<!-- 
+<p [class.header]="isHeader"  > Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic eos. Natus illo ut vero placeat exercitationem saepe quaerat nostrum? Laborum obcaecati voluptate quaerat omnis praesentium mollitia laboriosam facilis iusto. </p> -->
+
+<!-- <p [ngClass]="classes()"  > Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic eos. Natus illo ut vero placeat exercitationem saepe quaerat nostrum? Laborum obcaecati voluptate quaerat omnis praesentium mollitia laboriosam facilis iusto. </p> -->
+<!-- 
+
+
+<p [style.fontWeight]="isHeader ? 'bold' : '400'"  >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, nostrum laborum aspernatur fuga, asperiores voluptatum, et labore in aperiam sequi ipsam quidem. Dignissimos reprehenderit expedita, enim aliquid ad rem autem.</p> -->
+
+
+
+<!-- <p [ngStyle]="styles()"  >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, nostrum laborum aspernatur fuga, asperiores voluptatum, et labore in aperiam sequi ipsam quidem. Dignissimos reprehenderit expedita, enim aliquid ad rem autem.</p>
+ -->
+
+<!-- <button (click)="isHeader = !isHeader" >toggle Header State</button> -->
+
+
+
+
+
+<input
+    [type]="showPassword ? 'text' : 'password'" 
+    placeholder="password"
+    (keyup)="updatePassword($event)"
+>
+
+<button (click)="togglePasswordView()" > {{showPassword ? 'hide' : 'Show'}} Password</button>
