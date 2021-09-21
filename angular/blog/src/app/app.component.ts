@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // const {Component} = require('@angular/core');
-
+type USER_TYPE = 'admin' | 'client' | 'publisher'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -53,22 +53,44 @@ export class AppComponent {
 
   styles() {
     return {
-      color: this.isHeader ? 'skyblue': 'green',
+      color: this.isHeader ? 'skyblue' : 'green',
       fontSize: this.isHeader ? '2rem' : '1.5rem',
       fontWeight: this.isHeader ? 'bold' : '500',
       textDecoration: this.isHeader ? 'underline' : 'none',
-      fontStyle: this.isHeader ? 'none' : 'italic'
+      fontStyle: this.isHeader ? 'none' : 'italic',
     };
   }
 
+  password = '13454354';
+  email = '';
 
-  password = '';
-  
-  updatePassword(e: KeyboardEvent) {
-    const target = e.target as HTMLInputElement;
-    this.password = target.value;
+  // updatePassword(e: KeyboardEvent) {
+  //   const target = e.target as HTMLInputElement;
+  //   this.password = target.value;
 
-    console.log(this.password)
+  //   console.log(this.password)
+  // }
+
+  // updatePassword(input: HTMLInputElement) {
+  //   this.password = input.value;
+
+  //   console.log(this.password)
+  // }
+
+  isLoggedIn = false;
+
+  toggleSigninState() {
+    this.isLoggedIn = !this.isLoggedIn;
   }
+
+  // userType: USER_TYPE = 'publisher';
+  userType = 'admin';
+
+  todos: { title: string, id: number }[] = [
+    {title: 'todo1', id: 1},
+    {title: 'todo2', id: 2},
+    {title: 'todo3', id: 3},
+    {title: 'todo4', id: 4},
+  ]
 
 }

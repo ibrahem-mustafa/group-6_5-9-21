@@ -1,5 +1,5 @@
-<h1> Page Title: {{isHomePage ? 'Home Page' : 'About Page'}} </h1>
-<h2>{{subTitle}} </h2>
+<!-- <h1> Page Title: {{isHomePage ? 'Home Page' : 'About Page'}} </h1>
+<h2>{{subTitle}} </h2> -->
 
 <!-- <p [class]="pageContentClasses()" > Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, hic eos. Natus illo ut vero placeat exercitationem saepe quaerat nostrum? Laborum obcaecati voluptate quaerat omnis praesentium mollitia laboriosam facilis iusto. </p> -->
 
@@ -23,10 +23,54 @@
 
 
 
-<input
-    [type]="showPassword ? 'text' : 'password'" 
+<!-- <input
+    #passwordInput
+    [type]="showPassword ? 'text' : 'password'"
+    [value]="password"
     placeholder="password"
-    (keyup)="updatePassword($event)"
->
+    (keyup)="updatePassword(passwordInput)"
+> -->
+<!-- 
+<input type="text" placeholder="Email"  [(ngModel)]="email">
+<input
+    #passwordInput
+    [(ngModel)]="password"
 
-<button (click)="togglePasswordView()" > {{showPassword ? 'hide' : 'Show'}} Password</button>
+    [type]="showPassword ? 'text' : 'password'"
+    placeholder="password"
+    
+>
+<p>Email: {{email}}</p>
+<p>Passwword: {{password}}</p>
+
+<button (click)="togglePasswordView()" > {{showPassword ? 'hide' : 'Show'}} Password</button> -->
+
+<!-- <p>IsLoggedIn: {{isLoggedIn}}</p>
+
+<div *ngIf="!isLoggedIn else userLoggedIn">
+    <h1 > Singin </h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus possimus perspiciatis fuga nesciunt optio incidunt dolorum voluptate adipisci quod nam placeat unde, nobis inventore cumque. Et corporis explicabo possimus tenetur?</p>
+</div>
+
+
+<ng-template #userLoggedIn>
+    <h1 > Welcome </h1>
+    <p>Another Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur repellendus quibusdam sit nesciunt alias minima reiciendis nemo rerum sequi earum praesentium vitae excepturi dolores ea, illo similique beatae saepe qui?</p>
+</ng-template>
+
+
+<button (click)="toggleSigninState()" >Toggle Signin State</button>
+
+
+<div [ngSwitch]="userType" >
+    <h2 *ngSwitchCase="'admin'" > Admin View </h2>
+    <h2 *ngSwitchCase="'client'" > Client View </h2>
+    <h2 *ngSwitchCase="'publisher'" > Publisher View </h2>
+    <h2 *ngSwitchDefault >
+        Unknown User Type
+    </h2>
+</div> -->
+<h1>Todos - list</h1>
+<ul>
+    <li *ngFor="let todo of todos; index as i; first as f; last as l; odd as o; even as e" > {{todo.id}} - {{todo.title}} - Index: {{i}} - isFirst: {{f}} - isLast: {{l}} - isOdd: {{o}} - isEven: {{e}}</li>
+</ul>
