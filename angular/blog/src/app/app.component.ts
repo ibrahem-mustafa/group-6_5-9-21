@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // const {Component} = require('@angular/core');
-type USER_TYPE = 'admin' | 'client' | 'publisher'
+type USER_TYPE = 'admin' | 'client' | 'publisher';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -86,11 +86,81 @@ export class AppComponent {
   // userType: USER_TYPE = 'publisher';
   userType = 'admin';
 
-  todos: { title: string, id: number }[] = [
-    {title: 'todo1', id: 1},
-    {title: 'todo2', id: 2},
-    {title: 'todo3', id: 3},
-    {title: 'todo4', id: 4},
-  ]
 
+  todoTitle: string = '';
+  todos: { title: string; id: number, completed: boolean }[] = [
+    {
+      id: 1,
+      title: 'delectus aut autem',
+      completed: false,
+    },
+    {
+      id: 2,
+      title: 'quis ut nam facilis et officia qui',
+      completed: false,
+    },
+    {
+      id: 3,
+      title: 'fugiat veniam minus',
+      completed: false,
+    },
+    {
+      id: 4,
+      title: 'et porro tempora',
+      completed: true,
+    },
+    {
+      id: 5,
+      title: 'laboriosam mollitia et enim quasi adipisci quia provident illum',
+      completed: false,
+    },
+    {
+      id: 6,
+      title: 'qui ullam ratione quibusdam voluptatem quia omnis',
+      completed: false,
+    },
+    {
+      id: 7,
+      title: 'illo expedita consequatur quia in',
+      completed: false,
+    },
+    {
+      id: 8,
+      title: 'quo adipisci enim quam ut ab',
+      completed: true,
+    },
+    {
+      id: 9,
+      title: 'molestiae perspiciatis ipsa',
+      completed: false,
+    },
+    {
+      id: 10,
+      title: 'illo est ratione doloremque quia maiores aut',
+      completed: true,
+    },
+  ];
+
+  addTodo() {
+    // get todoTitle Value // this.todoTitle
+    // create todo with todoTitle Value
+    const todo = {
+      title: this.todoTitle,
+      id: new Date().getTime(),
+      completed: false
+    }
+    // push new todo to todos array
+    this.todos.push(todo);
+    this.todoTitle = '';
+  }
+
+  deleteTodo(id: number) {
+    const todoIndex = this.todos.findIndex(todo => todo.id == id);
+    if (todoIndex > -1) {
+      this.todos.splice(todoIndex, 1)
+    }
+  }
+
+
+  date = new Date();
 }

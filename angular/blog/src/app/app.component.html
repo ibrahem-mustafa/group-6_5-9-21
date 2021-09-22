@@ -12,16 +12,10 @@
 
 <p [style.fontWeight]="isHeader ? 'bold' : '400'"  >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, nostrum laborum aspernatur fuga, asperiores voluptatum, et labore in aperiam sequi ipsam quidem. Dignissimos reprehenderit expedita, enim aliquid ad rem autem.</p> -->
 
-
-
 <!-- <p [ngStyle]="styles()"  >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, nostrum laborum aspernatur fuga, asperiores voluptatum, et labore in aperiam sequi ipsam quidem. Dignissimos reprehenderit expedita, enim aliquid ad rem autem.</p>
  -->
 
 <!-- <button (click)="isHeader = !isHeader" >toggle Header State</button> -->
-
-
-
-
 
 <!-- <input
     #passwordInput
@@ -70,7 +64,47 @@
         Unknown User Type
     </h2>
 </div> -->
-<h1>Todos - list</h1>
+<!-- <h1>Todos - list</h1>
+<div>
+    <input [(ngModel)]="todoTitle"  type="text" placeholder="What To DO ?" >
+    <button (click)="addTodo()" >Add</button>
+</div>
 <ul>
-    <li *ngFor="let todo of todos; index as i; first as f; last as l; odd as o; even as e" > {{todo.id}} - {{todo.title}} - Index: {{i}} - isFirst: {{f}} - isLast: {{l}} - isOdd: {{o}} - isEven: {{e}}</li>
-</ul>
+    <li 
+        *ngFor="let todo of todos;" 
+    >  
+        {{todo.title}}
+        <button (click)="deleteTodo(todo.id)" >X</button>  
+    </li>
+</ul> -->
+
+<!-- <app-todo-list></app-todo-list> -->
+
+<!-- <h1>String Pipes</h1>
+
+
+<h2> {{ 'AHMED' | lowercase }} </h2>
+<h2> {{ 'welcome' | uppercase }} </h2>
+<h2> {{ 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. At cum reprehenderit doloremque perferendis velit consequatur ipsa omnis delectus ad, doloribus illum molestias neque illo consectetur aliquam nobis et minus sint?' | slice:0:60 | titlecase }}... </h2>
+<h2> {{classes() | json}} </h2>
+
+ -->
+<!-- 
+<h1>Number Pipes</h1>
+
+<h2> {{12.344 | number:'1.2-4'}} </h2>
+<h2> {{2.344 | number:'2.6-8'}} </h2>
+<h2> {{12.34457345243 | number:'2.2-4'}} </h2>
+<h2> {{12.34453654 | number:'4.3-5'}} </h2> -->
+
+<!-- <h1>Percentage Pipes</h1>
+<h2>{{ 0.5 | percent }}</h2> -->
+
+<!-- <h1>Currency Pipes</h1>
+    <h2>{{ 15 | currency:'EGP' }}</h2> -->
+<!-- 
+<h1>Date Pipes</h1>
+<h2>
+    {{ date | date}}
+
+</h2> -->
