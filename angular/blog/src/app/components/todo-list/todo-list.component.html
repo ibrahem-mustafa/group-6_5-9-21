@@ -1,8 +1,10 @@
+<app-todo-form></app-todo-form>
+
+<hr>
 <ul>
     <app-todo-list-item
         *ngFor="let todo of todos"
         [todoData]="todo"
-        (itemClicked)="deleteTodo($event)"
     ></app-todo-list-item>
 </ul>
 
