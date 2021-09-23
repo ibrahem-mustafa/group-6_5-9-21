@@ -11,7 +11,7 @@ export class TodosService {
 
   fetchTodos() {
     this.http
-      .get<TODO_INTERFACE[]>('http://jsonplaceholder.typicode.com/todos/')
+      .get<TODO_INTERFACE[]>('http://jsonplaceholder.typicode.com/todos/?_limit=20')
       .subscribe(
         (data) => (this.todos = data),
         (err) => console.log(err)

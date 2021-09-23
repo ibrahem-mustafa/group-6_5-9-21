@@ -49,8 +49,8 @@
 9: Fetch Data Via Http Requests // HttpClientModule // import {HttpClientModule}  from '@angular/common/http'
 10: Handling Http Errors
 11: Routing And Navigation
-12: router-outlet
-13: routerLink
+12: router-outlet // decide where to render dynamic components
+13: routerLink // custom property to use angular navigation system instead of normal href
 14: routerLinkActive // apply one or more classes to the active route
 15: wildcard (**) , redirect (redirectTo) and pathMatch (prefix || full)
 
