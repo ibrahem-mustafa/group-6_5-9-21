@@ -15,6 +15,8 @@ import { HomeComponent } from './views/home/home.component';
 import { DefaultBarComponent } from './components/bars/default-bar/default-bar.component';
 import { DefaultFooterComponent } from './components/footers/default-footer/default-footer.component';
 import { NotfoundComponent } from './views/notfound/notfound.component';
+import { ArticleListComponent } from './components/articles/article-list/article-list.component';
+import { ArticleListItemComponent } from './components/articles/article-list-item/article-list-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,8 @@ import { NotfoundComponent } from './views/notfound/notfound.component';
     DefaultBarComponent,
     DefaultFooterComponent,
     NotfoundComponent,
+    ArticleListComponent,
+    ArticleListItemComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-default-bar',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private authService: AuthService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  get userLoggedIn(): boolean {
+    return this.userService.isLoggedIn();
+  }
+
+  signout() {
+    this.authService.signout();
   }
 
 }

@@ -54,7 +54,7 @@
 14: routerLinkActive // apply one or more classes to the active route
 15: wildcard (**) , redirect (redirectTo) and pathMatch (prefix || full)
 
-16: route parameters with Router // router.navigate(['route', parameter]) 
+16: route parameters with (Router) // router.navigateByUrl('desired/url') (import it form @angular/router)
 17: active route // ActivatedRoute (import it from @angular/router)
 \\\\\\\\\\\\\\\\\\/////////////////
 
@@ -65,7 +65,6 @@
 // >> pages <<
 
 // home page
-// articles page
 // article details
 // add/edit article page
 // signup/signin pages
