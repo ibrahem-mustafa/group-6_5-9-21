@@ -1,0 +1,12 @@
+MONEY FLOW MANAGER
+
+// Authentication
+// SIGNIN
+// SIGNUP
+
+// SWIFT
+==> Branches // cash,visa,bank
+==> Transaction
+===> Income
+===> Expense
+===> Transfer
