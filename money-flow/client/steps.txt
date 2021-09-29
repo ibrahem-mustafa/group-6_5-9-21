@@ -1,0 +1,22 @@
+// GLOBAL
+// => navigation Bar
+// => actions Bar
+
+// Authentication
+// => Signin View
+// => Signup View
+
+// => Auth Service
+// => User Service
+
+// Swift
+// => Home View (Branches & Transactions Lists)
+// => Crate Branch View
+// => Crate Transaction View
+
+// => Branches List Component
+// => Branches List Item Component
+// => Transaction List Component
+// => Transaction List Item Component
+
+// Swift Service

@@ -4,9 +4,10 @@ var logger = require('morgan');
 const { connectDB } = require('./config/db.config');
 const authRoutes = require('./routes/auth.routes');
 const swiftRoutes = require('./routes/swift.routes')
+const cors = require('cors')
 var app = express();
 connectDB();
-
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

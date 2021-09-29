@@ -69,7 +69,7 @@ router.post('/createTransaction', ValidateToken, async (req, res) => {
     // amount: 500
     // SignedAmount: -500
     // balance += -500 = 1000 + (-500) = 1000 - 500 = 500
-    
+
     fromBranch.balance += signedAmount;
 
     if (type == 'transfer') {
@@ -103,5 +103,55 @@ router.post('/createTransaction', ValidateToken, async (req, res) => {
 })
 
 // delete transaction
+router.delete('/:id', ValidateToken, async (req, res) => {
+    const {id} = req.params;
+
+    const transaction = await Transaction.findById(id);
+
+    if (!transaction) return res.status(404).json({
+        msg: 'Transaction Not Found'
+    })
+
+    const user = await User.findById(req.user.id)
+
+
+    const {
+        from,
+        to, 
+        amount,
+        type
+    } = transaction
+
+    const sign = type == 'income' ? -1 :  1;
+    const signedAmount = amount * sign;
+
+    const fromBranch = user.branches.find(b => b._id == from.id);
+    if (!fromBranch) return res.status(404).json({msg: 'From Branch Not Found'});
+
+
+    
+    let toBranch;
+    if (type != 'transfer') {
+        toBranch = fromBranch
+    } else {
+        toBranch = user.branches.find(b => b._id == to.id);
+        if (!toBranch) return res.status(404).json({msg: 'To Branch Not Found'})
+    }
+    
+    fromBranch.balance += signedAmount;
+
+    if (type == 'transfer') {
+        toBranch.balance -= amount;
+    }
+
+    await transaction.delete();
+
+    await user.save();
+
+    res.status(200).json({transaction});
+
+
+
+})
 
 module.exports = router;
