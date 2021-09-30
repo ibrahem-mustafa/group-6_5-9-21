@@ -1,0 +1,54 @@
+<div class="modal show" tabindex="-1" [ngStyle]="createBranchModalStyle">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create Branch</h5>
+        <button
+          type="button"
+          (click)="showCreateBranchModal = false"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label"
+            >Branch Name</label
+          >
+          <input
+            [(ngModel)]="name"
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="..."
+          />
+        </div>
+        <div class="mb-3">
+          <label for="balance" class="form-label"
+            >Balance</label
+          >
+          <input
+          [(ngModel)]="balance"
+            type="number"
+            class="form-control"
+            id="balance"
+            placeholder="Initial Balance"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="createBranch()" >Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<li class="nav-item">
+  <a
+    class="nav-link btn btn-primary text-white"
+    aria-current="page"
+    (click)="showCreateBranchModal = true"
+    >Create Branch</a
+  >
+</li>

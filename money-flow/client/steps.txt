@@ -20,3 +20,10 @@
 // => Transaction List Item Component
 
 // Swift Service
+
+
+// Generate Guard
+// => ng g guard path/to/guard
+
+// IsLoggedIn Guard
+// IsNotLoggedIn Guard
