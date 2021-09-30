@@ -15,6 +15,7 @@ import { TransactionListComponent } from './components/swift/transaction-list/tr
 import { TransactionListItemComponent } from './components/swift/transaction-list-item/transaction-list-item.component';
 import { ActionsBarComponent } from './components/bars/actions-bar/actions-bar.component';
 import { CreateBranchModalComponent } from './components/swift/create-branch-modal/create-branch-modal.component';
+import { CreateTransactionModalComponent } from './components/swift/create-transaction-modal/create-transaction-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CreateBranchModalComponent } from './components/swift/create-branch-mod
     TransactionListItemComponent,
     ActionsBarComponent,
     CreateBranchModalComponent,
+    CreateTransactionModalComponent,
   ],
   imports: [
     BrowserModule,

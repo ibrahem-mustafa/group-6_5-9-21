@@ -1,0 +1,101 @@
+<div class="modal show" tabindex="-1" [ngStyle]="modalStyle">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create Transaction</h5>
+        <button
+          type="button"
+          (click)="showModal = false"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Type -->
+        <div
+          class="btn-group d-flex justify-content-center mb-3"
+          role="group"
+          aria-label="Basic radio toggle button group"
+        >
+          <div *ngFor="let t of ['income', 'expense', 'transfer']">
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              [id]="t"
+              autocomplete="off"
+              [checked]="t == type"
+              [value]="t"
+              [(ngModel)]="type"
+            />
+            <label class="btn btn-outline-primary" [for]="t">
+              {{ t | uppercase }}</label
+            >
+          </div>
+        </div>
+
+        <!-- From -->
+        <label for="amount" class="form-label">From</label>
+        <select [(ngModel)]="fromId" class="form-select mb-3" aria-label="From">
+          <option selected disabled>Open this select menu</option>
+          <option *ngFor="let branch of fromBranches" [value]="branch._id">
+            {{ branch.name }} - ${{ branch.balance }}
+          </option>
+        </select>
+        <!-- To -->
+        <label *ngIf="type == 'transfer'" for="amount" class="form-label"
+          >To</label
+        >
+        <select
+          *ngIf="type == 'transfer'"
+          [(ngModel)]="toId"
+          class="form-select mb-3"
+          aria-label="From"
+        >
+          <option selected disabled>Open this select menu</option>
+          <option *ngFor="let branch of toBranches" [value]="branch._id">
+            {{ branch.name }} - ${{ branch.balance }}
+          </option>
+        </select>
+
+        <!-- Amount -->
+        <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input [(ngModel)]="amount" type="number" class="form-control" id="amount" />
+        </div>
+
+        <!-- note -->
+        <div class="mb-3">
+          <label for="note" class="form-label"
+            >Note</label
+          >
+          <textarea
+            class="form-control"
+            id="note"
+            rows="3"
+            [(ngModel)]="note"
+          ></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="createTransaction()"
+        >
+          Create
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<li class="nav-item">
+  <a
+    class="nav-link btn btn-info text-white"
+    aria-current="page"
+    (click)="showModal = true"
+    >Create Transaction</a
+  >
+</li>

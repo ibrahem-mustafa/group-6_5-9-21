@@ -1,1 +1,8 @@
-<app-transaction-list-item></app-transaction-list-item>
+<div class="row">
+    <div class="col col-sm-12" *ngFor="let trans of transactions">
+        <app-transaction-list-item
+            [transaction]="trans"
+        ></app-transaction-list-item>
+
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SwiftService } from '../../../services/swift.service';
 
 @Component({
   selector: 'app-transaction-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private swiftService: SwiftService
+  ) { }
 
   ngOnInit(): void {
+    this.swiftService.fetchTransactions();
+  }
+
+  get transactions() {
+    return this.swiftService.transactions
   }
 
 }
